@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     resources :features do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :index]
     end 
   end
 end
