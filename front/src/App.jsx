@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PaginationFooter from "./components/paginationFooter";
 
 function App() {
@@ -47,13 +48,16 @@ function App() {
                 <td>{feature.attributes.title}</td>
                 <td>{feature.attributes.place}</td>
                 <td>{feature.attributes.magnitude}</td>
-                <td>{feature.attributes.magType}</td>
+                <td>{feature.attributes.mag_type}</td>
                 <td>
                   {feature.attributes.coordinates.latitude}
                   {","}
                   {feature.attributes.coordinates.longitude}
                 </td>
                 <td>{feature.attributes.links.external_url}</td>
+                <Link to={`${feature.id}`} state={feature}>
+                  Detalles
+                </Link>
               </tr>
             ))}
           </tbody>
