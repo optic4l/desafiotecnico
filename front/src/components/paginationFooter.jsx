@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function PaginationFooter({
   limiteInferior,
   limiteSuperior,
@@ -81,3 +83,11 @@ export default function PaginationFooter({
     </div>
   );
 }
+
+PaginationFooter.propTypes = {
+  limiteInferior: PropTypes.number,
+  limiteSuperior: PropTypes.number,
+  total: PropTypes.number,
+  actual: PropTypes.number,
+  setActualCallback: PropTypes.func,
+};
