@@ -1,25 +1,92 @@
-# README
+# Desafio Tecnico Frogmi
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta es la solucion al desafio tecnico planteado, incluye una API desarrollada en Ruby on Rails y un frontend construido con React, Vite y Tailwind CSS. La solucion permite obtener y persistir datos relacionados con eventos sísmicos, y comentar los eventos.
 
-Things you may want to cover:
+## Estructura del Repositorio
 
-* Ruby version
+- `api/`: Contiene el código fuente de la API desarrollada en Ruby on Rails.
+- `front/`: Contiene el código fuente del frontend desarrollado con React, Vite y Tailwind CSS.
 
-* System dependencies
+## Tecnologías Utilizadas
 
-* Configuration
+- **Backend**
 
-* Database creation
+  - Ruby on Rails
+  - PostgreSQL
 
-* Database initialization
+- **Frontend**
+  - React
+  - Tailwind CSS
 
-* How to run the test suite
+## Requisitos
 
-* Services (job queues, cache servers, search engines, etc.)
+- Ruby 3.3.0
+- Rails 7.1.3
+- Node.js
+- Npm
+- PostgreSQL
 
-* Deployment instructions
+## Instalación
 
-* ...
-# dtecnico-frogmi
+### Backend (API)
+
+1. Navegar hasta la carpeta `api/`:
+
+   ```bash
+   cd api/
+   ```
+
+2. Instalar las dependencias:
+
+   ```bash
+   bundle install
+   ```
+
+3. Configurar la base de datos:
+
+   ```bash
+   rails db:create
+   rails db:migrate
+   ```
+
+4. Lanzar task para obtener y persistir data sismologica:
+
+   ```bash
+   rake obtener_datos:ejecutar
+   ```
+
+5. Iniciar el servidor:
+
+   ```bash
+   rails server
+   ```
+
+### Frontend
+
+1. Navegar hasta la carpeta `front/`:
+
+   ```bash
+   cd front/
+   ```
+
+2. Instalar las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+3. Iniciar el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+## Uso
+
+### API
+
+La API expone endpoints para mostrar datos de eventos sísmicos y persistir comentarios relacionados a los eventos.
+
+### Frontend
+
+El frontend permite visualizar y comentar eventos sísmicos. Se puede acceder a la aplicación web visitando la URL `http://localhost:5173`.
