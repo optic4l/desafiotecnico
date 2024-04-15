@@ -87,6 +87,67 @@ Esta es la solucion al desafio tecnico planteado, incluye una API desarrollada e
 
 La API expone endpoints para mostrar datos de eventos sísmicos y persistir comentarios relacionados a los eventos.
 
+#### Obtener todas las features
+
+Para obtener datos sismológicos, realiza una solicitud GET a la siguiente URL:
+
+```bash
+http://127.0.0.1:3000/api/features?page={current_page}&per_page={per_page}
+
+```
+
+Ejemplo:
+
+```bash
+    curl -X GET \
+    '127.0.0.1:3000/api/features?page=1&per_page=2' \
+    -H 'Content-Type: application/vnd.api+json'\
+    -H 'cache-control: no-cache'
+```
+
+Ajustar los parametros "page" y "per_page" segun sea necesario.
+Considerar que el maximo permitido para "per_page" es de 1000. En caso de filtrar por un valor mayor la consulta se realizara igualmente pero usando el maximo de 1000 per page y no el valor mayor que se ingreso.
+
+#### Filtrar por tipo de magnitud
+
+Puedes filtrar los eventos sísmicos por magnitud usando el parámetro mag_type.
+
+```bash
+    http://127.0.0.1:3000/api/features?page=1&per_page=2&mag_type[]=ml
+```
+
+Ejemplo:
+
+```bash
+    curl -X GET \
+    '127.0.0.1:3000/api/features?page=1&per_page=2&mag_type[]=ml' \
+    -H 'Content-Type: application/vnd.api+json'\
+    -H 'cache-control: no-cache'
+```
+
+En caso de querer filtrar por mas de un mag_type, se puede agregar de la siguiente manera:
+
+```bash
+    http://127.0.0.1:3000/api/features?page=1&per_page=2&mag_type[]=ml&mag_type[]=md
+```
+
+#### Publicar comentario
+
+Para publicar un comentario a cierta feature, realizar una peticion POST al siguiente endpoint:
+
+```bash
+    http://127.0.0.1:3000/api/features/{id_feature}/comments
+```
+
+Ejemplo:
+
+```bash
+    curl --request POST \
+--url 127.0.0.1:3000/api/features/1/comments \
+--header 'content-type: application/json' \
+--data '{"body": "This is a comment" }'
+```
+
 ### Frontend
 
 El frontend permite visualizar y comentar eventos sísmicos. Se puede acceder a la aplicación web visitando la URL `http://localhost:5173`.
