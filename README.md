@@ -151,3 +151,7 @@ Ejemplo:
 ### Frontend
 
 El frontend permite visualizar y comentar eventos sísmicos. Se puede acceder a la aplicación web visitando la URL `http://localhost:5173`.
+
+Se establecio para la paginacion un valor para "per_page" de 10.
+
+Para realizar un comentario a cierto evento, ingresar a su vista de detalle clickeando en el link "Detalles" que se encuentra del todo a la derecha para cada evento.
