@@ -2,6 +2,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import Form from "../components/Form";
 const Detail = () => {
   const [comments, setComments] = useState([]);
   const { featureId } = useParams();
@@ -18,7 +19,9 @@ const Detail = () => {
     }
   };
 
-  console.log(comments);
+  const updateComments = async () => {
+    getComments();
+  };
 
   useEffect(() => {
     getComments();
@@ -39,8 +42,13 @@ const Detail = () => {
       <h2>Comentarios</h2>
       <ul>
         {comments?.map((comment) => (
-          <li key={comment.id}>{comment.body}</li>
+          <li key={comment.id}>
+            {comment.created_at} {comment.body}
+          </li>
         ))}
+        <div>
+          <Form featureId={featureId} updateComments={updateComments} />
+        </div>
       </ul>
     </div>
   );
